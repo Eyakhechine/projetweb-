@@ -1,24 +1,3 @@
-<?php
-include('../controller/db.php');
-$upload_dir = '../assets/uploads/';
-
-if(isset($_GET['delete'])){
-      $id = $_GET['delete'];
-      $sql = "select * from products where id = ".$id;
-      $result = mysqli_query($conn, $sql);
-      if(mysqli_num_rows($result) > 0){
-          $row = mysqli_fetch_assoc($result);
-          $image = $row['image'];
-          unlink($upload_dir.$image);
-          $sql = "delete from products where id=".$id;
-          if(mysqli_query($conn, $sql)){
-              header('location:index.php');
-          }
-      }
-  }
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,8 +8,8 @@ if(isset($_GET['delete'])){
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title> URBAND SPORT SHOP</title>
-  
+  <title> URBAND SPORT SHOP </title>
+
   <!-- Bootstrap core CSS -->
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -44,25 +23,26 @@ if(isset($_GET['delete'])){
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">WELCOME</a>
-     
-      
+      <a class="navbar-brand js-scroll-trigger" href="#page-top"> WELCOME TO URBAND SPORT SHOP </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#SIGN UP">SIGN UP </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#CATEGORIES">CATEGORIES</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#SIGN UP">SIGN UP</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#CONNECT">CONNECT</a>
+            <a class="nav-link js-scroll-trigger" href="#RETURNS & EXCHANGES">RETURNS & EXCHANGES </a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#SHOPPING CART">SHOPPING CART</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#PRODUCTS REVIEW">PRODUCTS REVIEW </a>
           </li>
         </ul>
       </div>
@@ -71,13 +51,8 @@ if(isset($_GET['delete'])){
 
   <header class="bg-primary text-white">
     <div class="container text-center">
-      <h1>URBAND SPORT SHOP</h1>
-      
-      <p class="lead">_ DON't DELAY SALE IS TODAY _</p>
-
-     
-   
-
+      <h1>CHECK OUR PRODUCTS </h1>
+      <p class="lead">DON'T DELAY SALE IS TODAY </p>
     </div>
   </header>
 
@@ -85,51 +60,97 @@ if(isset($_GET['delete'])){
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          
+          <h2>About this page</h2>
           
 
-            
-                                          <table id="example" class="table table-striped table-bordered" style="width:100%">
-                                            <tbody>
-                                              <?php
-                                                $sql = "select * from products";
-                                                $result = mysqli_query($conn, $sql);
-                                                        if(mysqli_num_rows($result)){
-                                                            while($row = mysqli_fetch_assoc($result)){
-                                              ?>
-                                              <tr>
-                                                
-                                                <td><img src="<?php echo $upload_dir.$row['image'] ?>" height="200"></td>
-                                                <td><?php echo $row['name'] ?></td>
-                                        
-                                                
-                                              </tr>
-                                              <?php
-                                                  }
-                                                }
-                                              ?>
-                                            </tbody>
-                                          </table>
-                                        </div>
-                                    </div>
-                                </div>
+
+
+
+
+          <div style="height:50px;"></div>
+<table class="table table-striped table-bordered table-responsive table-hover" 
+id="empTable" >
+<thead>
+<th><center>Picture</center></th>
+<th><center>category</center></th>
+<th><center>brand</center></th>
+<th><center>price</center></th>
+<th><center>description</center></th>
+<th><center>name</center></th>
+
+</thead>
+<tbody>
+<?php
+include('../controller/database.php');
+$result=$mysqli->query("select * from productss");
+while($row=$result->fetch_assoc()){
+$img = "http://localhost/php_crud/assets/profile_images/".$row['id']. ".jpg";
+?>
+<tr>
+<td> <img src='<?php echo $img ?>' height="260px" width="260px" /></td>
+<td><?php echo $row['category']; ?></td>
+<td><?php echo $row['brand']; ?></td>
+<td><?php echo $row['price']; ?></td>
+<td><?php echo $row['description']; ?></td>
+<td><?php echo $row['name']; ?></td>
+
+</tr>
+<?php } ?>
+</tbody>
+</table>
+</div>
+
+
+<!-- End -->
+</div>
+
+                            
                             </div>
-                          </div>
+                        </div>
+                    </div>
+                </main>
+                
+            </div>
+        </div>
 
 
+
+
+
+
+
+          
         </div>
       </div>
     </div>
   </section>
 
-  
+  <section id="PRODUCTS REVIEW " class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2></h2>
+          
+        </div>
+      </div>
+    </div>
+  </section>
 
-
+  <section id="SHOPPING CART">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2></h2>
+         
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white"> GO CHECK CATEGORIES AND ENJOY SCROLLING</p>
+      <p class="m-0 text-center text-white"> U2S 2020</p>
     </div>
     <!-- /.container -->
   </footer>
