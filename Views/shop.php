@@ -60,7 +60,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <h2>About this page</h2>
+          <h2></h2>
           
 
 
