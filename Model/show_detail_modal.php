@@ -3,6 +3,7 @@
 role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  
 <div class="modal-dialog">
+
 <div class="modal-content">
 <div class="modal-header">
 <button type="button" class="close" data-dismiss="modal" 
@@ -14,6 +15,10 @@ aria-hidden="true">&times;</button>
 $edit=$mysqli->query("select * from productss where id=".$row['id']);
 $erow=$edit->fetch_assoc();
 ?>
+
+
+
+
 <div class="container-fluid">
 <form method="POST" action="../controller/update.php?id=<?php echo $erow['id']; ?>" 
 enctype="multipart/form-data">
