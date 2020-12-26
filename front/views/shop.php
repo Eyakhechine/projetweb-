@@ -246,7 +246,7 @@ foreach($result as $row){
                         <h2 class="mt-0"> YOUR OPINION MATTER !  </h2>
                         <h2>please rate our products here</h2>
                         <hr class="divider my-4" />
-                        <a class="btn btn-light btn-xl js-scroll-trigger" class="page-section bg-dark text-white" href="productsreview.php"> products review</a>
+                        <a class="btn btn-light btn-xl js-scroll-trigger" class="page-section bg-dark text-white" href="../model/create-review-info.php"> products review</a>
                     </div>
                 </div>
                 
