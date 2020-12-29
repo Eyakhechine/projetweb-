@@ -75,7 +75,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             SHOPPING CART
                             </a>
-                            <a class="nav-link" href="index.php">
+                            <a class="nav-link" href="indexRE.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             RETURNS&EXCHANGES
                             </a>

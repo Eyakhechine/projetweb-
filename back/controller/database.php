@@ -1,6 +1,6 @@
 <?php
 //Create database connection
-$mysqli = mysqli_connect("localhost","root","","crudphp");
+$mysqli = mysqli_connect("localhost","root","","1projetweb");
 
 if (!$mysqli) {
 

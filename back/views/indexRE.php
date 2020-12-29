@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,10 +16,7 @@
     </head>
     <body class="sb-nav-fixed">
 
-    <center>
-<h2><span style="font-size:25px; color:blue">
-PRODUCTS MANAGEMENT </span>
-</h2></center>
+  
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="index.html">U2S administration</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
@@ -79,7 +79,6 @@ PRODUCTS MANAGEMENT </span>
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             RETURNS&EXCHANGES
                             </a>
-                            
                         </div>
                     </div>
                    
@@ -88,148 +87,74 @@ PRODUCTS MANAGEMENT </span>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4"> PRODUCTS MANAGEMENT </h1>
-                      
-                        
-                        <div class="card mb-4">
-<form method="post">
-<label>Search</label>
-<input type="text" name="search">
-<input type="submit" name="submit">
-	
-</form>
-
-
-
-
-
-
-<?php
-
-$con = new PDO("mysql:host=localhost;dbname=crudphp",'root','');
-
-if (isset($_POST["submit"])) {
-	$str = $_POST["search"];
-	$sth = $con->prepare("SELECT * FROM `productss` WHERE name = '$str'");
-
-	$sth->setFetchMode(PDO:: FETCH_OBJ);
-	$sth -> execute();
-
-	if($row = $sth->fetch())
-	{
-		?>
-		<br><br><br>
-		<table>
-			<tr>
-				<th>name</th>
-				<th>category</th>
-                <th>brand</th>
-                <th>price</th>
-                <th>Description</th>
-			</tr>
-			<tr>
-				<td><?php echo $row->name; ?></td>
-                <td><?php echo $row->category; ?></td>
-                <td><?php echo $row->brand; ?></td>
-                <td><?php echo $row->price; ?></td>
-				<td><?php echo $row->description;?></td>
-			</tr>
-
-		</table>
-<?php 
-	}
-		
-		
-		else{
-			echo "Name Does not exist";
-		}
-
-
-}
-
-?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    <div class="card mb-4">
+                             
                              <div class="container">
+                             <h3 > returns and exchanges </h3>
 <br/><br/>
-<div class="row header col-sm-12" style="text-align:center;color:blue">
-<span class="pull-left">
-<a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm">
-<span class="glyphicon glyphicon-plus"></span> Add New
-</a></span>
+                        <?php
 
-<div style="height:50px;"></div>
-<table class="table table-striped table-bordered table-responsive table-hover" 
-id="empTable" >
-<thead>
-<th><center>Picture</center></th>
-<th><center>category</center></th>
-<th><center>brand</center></th>
-<th><center>price</center></th>
-<th><center>description</center></th>
-<th><center>name</center></th>
-<th><center>Action</center></th>
-</thead>
-<tbody>
-<?php
-include('../controller/database.php');
-$result=$mysqli->query("select * from productss ");
-while($row=$result->fetch_assoc()){
-$img = "http://localhost/php_crud/back/assets/profile_images/".$row['id']. ".jpg";
+include '../controller/RE.php';
+
+$returns_obj = new returns();
+$returns_list = $returns_obj->returns_list();
 ?>
-<tr>
-<td> <img src='<?php echo $img ?>' height="50px" width="70px" /></td>
-<td><?php echo $row['category']; ?></td>
-<td><?php echo $row['brand']; ?></td>
-<td><?php echo $row['price']; ?></td>
-<td><?php echo $row['description']; ?></td>
-<td><?php echo $row['name']; ?></td>
-<td>
-<a href="#detail<?php echo $row['id']; ?>" 
-data-toggle="modal" class="btn btn-success btn-sm">
-<span class="glyphicon glyphicon-floppy-open">
-</span>Detail</a>&nbsp;
+  <link rel="stylesheet" href="../assets/stylereview.css">
+<div class="container " > 
+    <div class="row content">
+    
+      
+    <?php
+        if (isset($_SESSION['message'])) {
+            echo "<p class='custom-alert'>" . $_SESSION['message'] . "</p>";
+            unset($_SESSION['message']);
+        }
+        ?>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>reason</th>
+                    <th>type</th>
+                    <th>address</th>
+                    <th class="text-right">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+<?php
+if ($returns_list->num_rows > 0) {
+  while ($row = $returns_list->fetch_assoc()) {
+     ?>
+             <tr>
+                <td><?php echo $row["us_name"] ?></td>
+                <td><?php echo $row["email_address"] ?></td>
+                <td><?php echo $row["reason"] ?></td>
+                <td><?php echo $row["typee"] ?></td>
+                <td><?php echo $row["adress"] ?></td>
+                <td class="text-right">
+                    <a  href="<?php echo '../model/deleteRE.php?id=' . $row["us_id"] ?>" class="button button-red">Delete</a>  
+                   
+                    <a href="<?php echo '../model/readRE.php?id=' . $row["us_id"] ?>" class="button button-green">View</a>
+                </td>
+            </tr>
+    <?php
+    }
+}
+?>
+           </tbody>
+        </table>
 
-<a href="#edit<?php echo $row['id']; ?>" 
-data-toggle="modal" class="btn btn-warning btn-sm">
-<span class="glyphicon glyphicon-edit">
-</span> Edit</a>&nbsp;
-
-<a href="#del<?php echo $row['id']; ?>" 
-data-toggle="modal" class="btn btn-danger btn-sm">
-<span class="glyphicon glyphicon-trash">
-</span> Delete</a>
-
-<!-- include edit modal -->
-<?php include('../model/show_detail_modal.php'); ?>
-<!-- End -->
-<!-- include edit modal -->
-<?php include('../model/show_edit_modal.php'); ?>
-<!-- End -->
-<!-- include delete modal -->
-<?php include('../model/show_delete_modal.php'); ?>
-<!-- End -->
-</td>
-</tr>
-<?php } ?>
-</tbody>
-</table>
+    </div>
 </div>
-<!-- include insert modal -->
-<?php include('../model/show_add_modal.php'); ?>
-<!-- End -->
+<?php
+include '../model/footer.php';
+?>  
+
+
+
+</div>
+
 </div>
 
                             
@@ -240,6 +165,13 @@ data-toggle="modal" class="btn btn-danger btn-sm">
                 
             </div>
         </div>
+                        
+                        
+                             
+                            
+
+
+
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="../assets/js/scriptss.js"></script>

@@ -48,11 +48,9 @@ if(isset($_GET['delete'])){
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#shop.php">About</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="shop.php">categories</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#shop.php">customized products</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#products review">products review</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#shopping cart">shopping cart</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="shop.php">urband sport shop</a></li>
+                        
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../model/create-review-info.php">products review</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#shop.php">Contact</a></li>
                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#returns&exchanges">returns&exchanges</a></li>
                     </ul>
@@ -73,7 +71,7 @@ if(isset($_GET['delete'])){
                     </div>
                     <div class="col-lg-8 align-self-baseline">
                         <p class="text-white-75 font-weight-light mb-5"> <strong>DON'T DELAY ! SALE IS TODAY</strong></p>
-                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">check customized products</a>
+                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">SCROLL DOWN TO CHECK PRODUCTS</a>
                     </div>
                 </div>
             </div>
@@ -112,6 +110,7 @@ $img = "http://localhost/php_crud/back/assets/profile_images/".$row['id']. ".jpg
 <td><?php echo $row['price']; ?></td>
 <td><?php echo $row['description']; ?></td>
 <td><?php echo $row['name']; ?></td>
+<td><a class="btn btn-primary btn-xl js-scroll-trigger" href="ordern.php"> add to cart </a></td>
 
 </tr>
 <?php } ?>

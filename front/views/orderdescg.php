@@ -41,18 +41,16 @@ if(isset($_GET['delete'])){
         <link href="../assets/css/styles.css" rel="stylesheet" />
     </head>
     
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+             <!-- Navigation-->
+             <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
                 <a class="navbar-brand js-scroll-trigger" href="#page-top">WELCOME </a> 
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#shop.php">About</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="shop.php">categories</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#shop.php">customized products</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#products review">products review</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#shopping cart">shopping cart</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="shop.php">urband sport shop</a></li>
+                        
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../model/create-review-info.php">products review</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#shop.php">Contact</a></li>
                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#returns&exchanges">returns&exchanges</a></li>
                     </ul>
@@ -108,6 +106,7 @@ $img = "http://localhost/php_crud/back/assets/profile_images/".$row['id']. ".jpg
 <td><?php echo $row['price']; ?></td>
 <td><?php echo $row['description']; ?></td>
 <td><?php echo $row['name']; ?></td>
+<td><a class="btn btn-primary btn-xl js-scroll-trigger" href="ordern.php"> add to cart </a></td>
 
 </tr>
 <?php } ?>

@@ -53,7 +53,7 @@ if(isset($_GET['delete'])){
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#categories">categories</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#customized products">customized products</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#products review">products review</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#shopping cart">shopping cart</a></li>
+
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#returns&exchanges">returns&exchanges</a></li>
                     </ul>
@@ -204,8 +204,8 @@ foreach($result as $row){
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="../assets/img/portfolio/fullsize/2.jpg">
-                            <img class="img-fluid" src="../assets/img/portfolio/thumbnails/2.jpg" alt="" />
+                        <a class="portfolio-box" href="../assets/img/portfolio/fullsize/8.jpg">
+                            <img class="img-fluid" src="../assets/img/portfolio/thumbnails/8.jpg" alt="" />
                            
                         </a>
                     </div>
@@ -222,8 +222,8 @@ foreach($result as $row){
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="../assets/img/portfolio/fullsize/5.jpg">
-                            <img class="img-fluid" src="../assets/img/portfolio/thumbnails/5.jpg" alt="" />
+                        <a class="portfolio-box" href="../assets/img/portfolio/fullsize/7.jpg">
+                            <img class="img-fluid" src="../assets/img/portfolio/thumbnails/7.jpg" alt="" />
                           
                         </a>
                     </div>
@@ -239,24 +239,12 @@ foreach($result as $row){
 
           <!-- products review -->
      
-          <section class="page-section" id="products review">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 text-center">
-                        <h2 class="mt-0"> YOUR OPINION MATTER !  </h2>
-                        <h2>please rate our products here</h2>
-                        <hr class="divider my-4" />
-                        <a class="btn btn-light btn-xl js-scroll-trigger" class="page-section bg-dark text-white" href="../model/create-review-info.php"> products review</a>
-                    </div>
-                </div>
-                
-            </div>
-        </section>
-        <!-- shopping cart-->
-        <section class="page-section bg-dark text-white" class="page-section"id="shopping cart">
+        
+        <section class="page-section bg-dark text-white" class="page-section"id="products review">
             <div class="container text-center">
-                <h2 class="mb-4">go fill your shopping cart</h2>
-                <a class="btn btn-light btn-xl" href="shoppingcart.php">SHOPPING CART</a>
+                <h2 class="mb-4">YOUR OPINION MATTER</h2>
+                <h2>please rate our products here</h2>
+                <a class="btn btn-light btn-xl" href="../model/create-review-info.php">products review </a>
             </div>
         </section>
 
@@ -293,7 +281,7 @@ foreach($result as $row){
         <section class="page-section bg-dark text-white" id="returns&exchanges">
             <div class="container text-center">
                 <h2 class="mb-4">want to return an item or exchange it ? click here to verify </h2>
-                <a class="btn btn-light btn-xl" href="shoppingcart.php">verify</a>
+                <a class="btn btn-light btn-xl" href="../model/createRE.php">verify</a>
             </div>
         </section>
         <!-- Footer-->
