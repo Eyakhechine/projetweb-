@@ -104,12 +104,9 @@ if(isset($_GET['del_id']))
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4"> CATEGORIES MANAGEMENT </h1>
-                      
+                       
                         
-                        <div class="card mb-4">
-                             
-                             <div class="container">
+                        
 <br/><br/>
 <div id="page-wrapper">
 

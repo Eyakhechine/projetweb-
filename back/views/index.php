@@ -63,7 +63,7 @@ PRODUCTS MANAGEMENT </span>
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                CATEGORIES
                             </a>
-                            <a class="nav-link" href="client.php.php">
+                            <a class="nav-link" href="client.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                              CUSTOMERS
                             </a>
