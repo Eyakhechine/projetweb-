@@ -1,26 +1,20 @@
+<?php 
+require "../controller/loginC.php" ;
+$User= new loginC();
+$cC=new loginC();
+if (isset($_GET['key'])) {
+  $listeSign = $cC->rechercherclients($_GET['key']);
+} else {
+  $listeSign=$cC->afficher_sign_return() ;
+}
 
-<?php
-include('../controller/db.php');
-$upload_dir = '../assets/uploads/';
+if(isset($_GET['del_id']))
+  {
+    $User->supprimer($_GET['del_id']);
+  $result='<div class="alert alert-danger">commande $_GET[del_id] deleted </div>';
+}
 
-if(isset($_GET['delete'])){
-      $id = $_GET['delete'];
-      $sql = "select * from categories where id = ".$id;
-      $result = mysqli_query($conn, $sql);
-      if(mysqli_num_rows($result) > 0){
-          $row = mysqli_fetch_assoc($result);
-          $image = $row['image'];
-          unlink($upload_dir.$image);
-          $sql = "delete from categories where id=".$id;
-          if(mysqli_query($conn, $sql)){
-              header('location:indexcat.php');
-          }
-      }
-  }
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -38,7 +32,7 @@ if(isset($_GET['delete'])){
 
     <center>
 <h2><span style="font-size:25px; color:blue">
-CATEGORIES MANAGEMENT </span>
+ </span>
 </h2></center>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="index.html">U2S administration</a>
@@ -117,58 +111,62 @@ CATEGORIES MANAGEMENT </span>
                              
                              <div class="container">
 <br/><br/>
-<div class="row header col-sm-12" style="text-align:center;color:blue">
-<span class="pull-left">
-<a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm">
-<span class="glyphicon glyphicon-plus"></span> Add New
-</a></span>
+<div id="page-wrapper">
 
-<div style="height:50px;"></div>
-<table id="example" class="table table-striped table-bordered" style="width:100%">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Image</th>
-                                                    <th>Name of category</th>
-                                                    
-                                                    <th>Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tfoot>
-                                              <tr>
-                                                <th>ID</th>
-                                                <th>Image</th>
-                                                <th>Name of category </th>
-                                               
-                                                <th>Actions</th>
-                                              </tr>
-                                            </tfoot>
-                                            <tbody>
-                                              <?php
-                                                $sql = "select * from categories";
-                                                $result = mysqli_query($conn, $sql);
-                                                        if(mysqli_num_rows($result)){
-                                                            while($row = mysqli_fetch_assoc($result)){
-                                              ?>
-                                              <tr>
-                                                <td><?php echo $row['id'] ?></td>
-                                                <td><img src="<?php echo $upload_dir.$row['image'] ?>" height="40"></td>
-                                                <td><?php echo $row['name'] ?></td>
-                                                
-                                        
-                                                <td class="text-center">
-                                                  <a href="../model/showcat.php?id=<?php echo $row['id'] ?>" class="btn btn-success"><i class="fa fa-eye"></i></a>
-                                                  <a href="../model/editcat.php?id=<?php echo $row['id'] ?>" class="btn btn-info"><i class="fa fa-user-edit"></i></a>
-                                                  <a href="indexcat.php?delete=<?php echo $row['id'] ?>" class="btn btn-danger" onclick="return confirm('Are you sure to delete this record?')"><i class="fa fa-trash-alt"></i></a>
-                                                </td>
-                                              </tr>
-                                              <?php
-                                                  }
-                                                }
-                                              ?>
-                                            </tbody>
-                                          </table>
-</div>
+</div><!-- /.row -->
+<li class="nav-item">
+<form class="search-bar">
+<input type="text" class="form-control" name="key" placeholder="Enter keywords">
+ <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+</form>
+</li>
+<div class="row">
+  <div class="col-lg-6">
+    <h2>Gestion Client
+    </h2>
+    <div class="table-responsive">
+
+      <table class="table table-bordered table-hover tablesorter">
+          <thead>
+                      <th scope="col">photo</th>
+                        <th>nom</th>
+                    <th scope="col">prénom</th>
+                      <th>email</th>
+                    <th scope="col">mot de passe</th>
+            </tr>
+          </thead>
+         <?PHP
+foreach ($listeSign as $donnee) //affichage
+{
+        
+          echo('<tr>');
+
+echo('<td> <img src="img/'.$donnee['photo'].'" width="100" height="100" /> </td>'); 
+
+echo('<td>'.$donnee['nom'].'</td>');
+
+echo('<td>'.$donnee['prenom'].'</td>');
+
+echo('<td>'.$donnee['email'].'</td>');
+
+echo('<td>'.$donnee['mdp'].'</td>');
+
+         echo ('<td>');
+              echo('<td><a href="client.php?del_id='.$donnee['nom'].'" class="btn btn-danger navbar-btn">Supprimer</a></td>') ;// del_id=aboud and will be deleted
+              echo('</td>');
+                  echo('</tr>');
+}
+              ?>
+        </tbody>
+    </div>
+  </div>
+ 
+  
+</div><!-- /.row -->
+
+</div><!-- /#page-wrapper -->
+
+</div><!-- /#wrapper -->
 <!-- include insert modal -->
 <?php include('../model/show_add_modal.php'); ?>
 <!-- End -->
