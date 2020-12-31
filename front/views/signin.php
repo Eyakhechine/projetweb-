@@ -47,7 +47,7 @@
                     </div>
                     <div class="col-lg-8 align-self-baseline">
                         <p class="text-white-75 font-weight-light mb-5"> <strong>DON'T DELAY ! SALE IS TODAY</strong></p>
-                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">scroll down to GOT products</a>
+                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">scroll down to sign in</a>
                     </div>
                 </div>
             </div>
