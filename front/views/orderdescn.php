@@ -84,7 +84,7 @@ if(isset($_GET['delete'])){
                     
 <thead>
 <th><center>Picture</center></th>
-<th><center>category</center></th>
+
 <th><center>brand</center></th>
 <th><center>price</center></th>
 <th><center>description</center></th>
@@ -101,7 +101,6 @@ $img = "http://localhost/php_crud/back/assets/profile_images/".$row['id']. ".jpg
 ?>
 <tr>
 <td> <img src='<?php echo $img ?>' height="260px" width="260px" /></td>
-<td><?php echo $row['category']; ?></td>
 <td><?php echo $row['brand']; ?></td>
 <td><?php echo $row['price']; ?></td>
 <td><?php echo $row['description']; ?></td>
