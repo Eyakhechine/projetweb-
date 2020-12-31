@@ -267,12 +267,12 @@ foreach($result as $row){
                     <div class="col-lg-4 mr-auto text-center">
                         <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
                         <!-- Make sure to change the email address in BOTH the anchor text and the link target below!-->
-                        <a class="d-block" href="connect.php" > connect </a>
+                        <a class="d-block" href="sign.php" > connect </a>
                     </div>
                     <div class="col-lg-4 mr-auto text-center">
                         <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
                         <!-- Make sure to change the email address in BOTH the anchor text and the link target below!-->
-                        <a class="d-block" href="signup.php">sign up </a>
+                        <a class="d-block" href="signin.php">sign up </a>
                     </div>
                 </div>
             </div>
