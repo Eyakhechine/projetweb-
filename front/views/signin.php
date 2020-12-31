@@ -86,10 +86,10 @@
                 <input type="file" class="form-control" name="photo" placeholder="Ajouter une photo" required>
               </div>
               <div class="text-center">
-                <button type="submit" class="btn btn-main text-center">Sign In</button>
+                <button type="submit" class="btn btn-main text-center">Sign up</button>
               </div>
             </form>
-            <p class="mt-20">Already hava an account ?<a href="sign.php"> Login</a></p>
+            <p class="mt-20">Already have an account ?<a href="sign.php"> Login</a></p>
             <p><a href="forget-password.html"> Forgot your password?</a></p>
           </div>
         </div>
