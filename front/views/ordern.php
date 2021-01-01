@@ -1,22 +1,3 @@
-<?php
-include('../controller/db.php');
-$upload_dir = '../assets/uploads/';
-
-if(isset($_GET['delete'])){
-      $id = $_GET['delete'];
-      $sql = "select * from categories where id = ".$id;
-      $result = mysqli_query($conn, $sql);
-      if(mysqli_num_rows($result) > 0){
-          $row = mysqli_fetch_assoc($result);
-          $image = $row['image'];
-          unlink($upload_dir.$image);
-          $sql = "delete from categories where id=".$id;
-          if(mysqli_query($conn, $sql)){
-              header('location:indexcat.php');
-          }
-      }
-  }
-?>
 
 
 
@@ -97,7 +78,7 @@ if(isset($_GET['delete'])){
 include('../controller/database.php');
 $result=$mysqli->query("select * FROM productss where category='normal' ORDER BY price");
 while($row=$result->fetch_assoc()){
-$img = "http://localhost/php_crud/back/assets/profile_images/".$row['id']. ".jpg";
+$img = "http://localhost/projetweb-/back/assets/profile_images/".$row['id']. ".jpg";
 ?>
 <tr>
 <td> <img src='<?php echo $img ?>' height="260px" width="260px" /></td>

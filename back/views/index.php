@@ -106,7 +106,7 @@ PRODUCTS MANAGEMENT </span>
 
 <?php
 
-$con = new PDO("mysql:host=localhost;dbname=crudphp",'root','');
+$con = new PDO("mysql:host=localhost;dbname=1projetweb",'root','');
 
 if (isset($_POST["submit"])) {
 	$str = $_POST["search"];
@@ -187,7 +187,7 @@ id="empTable" >
 include('../controller/database.php');
 $result=$mysqli->query("select * from productss ");
 while($row=$result->fetch_assoc()){
-$img = "http://localhost/php_crud/back/assets/profile_images/".$row['id']. ".jpg";
+$img = "http://localhost/projetweb-/back/assets/profile_images/".$row['id']. ".jpg";
 ?>
 <tr>
 <td> <img src='<?php echo $img ?>' height="50px" width="70px" /></td>

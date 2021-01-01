@@ -20,7 +20,7 @@ enctype="multipart/form-data">
  
 <div class="row">
 <div class="col-lg-12" align="center">
-<?php $img = "http://localhost/php_crud/assets/profile_images/".$row['id']. ".jpg";?>
+<?php $img = "http://localhost/projetweb-/back/assets/profile_images/".$row['id']. ".jpg";?>
 <img src='<?php echo $img ?>' height="150px" width="170px" />
  
 </div>

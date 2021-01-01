@@ -1,6 +1,6 @@
 <?php
 include('../controller/db.php');
-$upload_dir = '../assets/uploads/';
+$upload_dir = '../../back/assets/uploads/';
 
 if(isset($_GET['delete'])){
       $id = $_GET['delete'];
@@ -132,7 +132,7 @@ foreach($result as $row){
 <div class="categorie-wrapper col-md-4">
 
 <button  onclick="window.location.href = 'shopnormal.php';"class="categorieBtn"  >
-<img src="../assets/uploads/<?PHP echo $row['image'];
+<img src="../../back/assets/uploads/<?PHP echo $row['image'];
 
 ?>" alt="" class="catimg">
 <span> <?PHP echo $row['name'];
@@ -166,7 +166,7 @@ foreach($result as $row){
 <div class="categorie-wrapper col-md-4">
 
 <button  onclick="window.location.href = 'shopgot.php';"class="categorieBtn"  >
-<img src="../assets/uploads/<?PHP echo $row['image'];
+<img src="../../back/assets/uploads/<?PHP echo $row['image'];
 
 ?>" alt="" class="catimg">
 <span> <?PHP echo $row['name'];

@@ -1,4 +1,5 @@
 
+
 <?php
 include('../controller/db.php');
 $upload_dir = '../assets/uploads/';
@@ -19,8 +20,6 @@ if(isset($_GET['delete'])){
   }
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -36,10 +35,7 @@ if(isset($_GET['delete'])){
     </head>
     <body class="sb-nav-fixed">
 
-    <center>
-<h2><span style="font-size:25px; color:blue">
-CATEGORIES MANAGEMENT </span>
-</h2></center>
+  
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <a class="navbar-brand" href="index.html">U2S administration</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
@@ -108,7 +104,7 @@ CATEGORIES MANAGEMENT </span>
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-                <main>
+            <main>
                     <div class="container-fluid">
                         <h1 class="mt-4"> CATEGORIES MANAGEMENT </h1>
                       
@@ -119,7 +115,7 @@ CATEGORIES MANAGEMENT </span>
 <br/><br/>
 <div class="row header col-sm-12" style="text-align:center;color:blue">
                                   <ul class="navbar-nav ml-auto">
-                                    <li class="nav-item"><a class="btn btn-primary" href="../model/create.php"> create<i class="fa fa-user-plus"></i></a></li>
+                                    <li class="nav-item"><a class="btn btn-primary" href="../model/createcat.php"> create<i class="fa fa-user-plus"></i></a></li>
                                   </ul>
                             </div>
 <div class="col-md-12"><form method="post" action="../Model/search.php"><input required type="text" name="search"/><input type="submit"  value="Search" /></form></div>
@@ -173,6 +169,13 @@ CATEGORIES MANAGEMENT </span>
                 
             </div>
         </div>
+                        
+                        
+                             
+                            
+
+
+
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="../assets/js/scriptss.js"></script>

@@ -29,7 +29,7 @@ $filename=$id.".jpg";
  
 $result = move_uploaded_file($_FILES['pimage']['tmp_name'],FILEREPOSITORY.$filename);
 //$result = move_uploaded_file($_FILES['pimg']['tmp_name'],
-"http://localhost/php_crud/assets/profile_images/28.jpg";
+"http://localhost/projetweb-/assets/profile_images/28.jpg";
 if ($result == 1) echo "<p>File successfully uploaded.</p>";
 else echo "<p>There was a problem uploading the file.</p>";
 }

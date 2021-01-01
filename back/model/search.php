@@ -111,7 +111,7 @@ if(isset($_GET['delete'])){
                               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                   <ul class="navbar-nav mr-auto"></ul>
                                   <ul class="navbar-nav ml-auto">
-                                    <li class="nav-item"><a class="btn btn-primary" href="../model/create.php"> create<i class="fa fa-user-plus"></i></a></li>
+                                    <li class="nav-item"><a class="btn btn-primary" href="../model/createcat.php"> create<i class="fa fa-user-plus"></i></a></li>
                                   </ul>
                               </div>
                             </div>

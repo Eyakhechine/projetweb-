@@ -51,8 +51,8 @@ if(isset($_GET['delete'])){
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="shop.php">urband sport shop</a></li>
                         
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../model/create-review-info.php">products review</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#shop.php">Contact</a></li>
-                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#returns&exchanges">returns&exchanges</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="shop.php">Contact</a></li>
+                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../model/createRE.php">returns&exchanges</a></li>
                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="cart.php">Cart</a></li>
                     </ul>
                 </div>
