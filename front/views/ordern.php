@@ -106,7 +106,18 @@ $img = "http://localhost/php_crud/back/assets/profile_images/".$row['id']. ".jpg
 <td><?php echo $row['price']; ?></td>
 <td><?php echo $row['description']; ?></td>
 <td><?php echo $row['name']; ?></td>
-<td><a class="btn btn-primary btn-xl js-scroll-trigger" href="ordern.php"> add to cart </a></td>
+<td>
+<form method="post" action="addtocart.php">
+<input type="hidden" name="pid" value="<?php echo $row['id']; ?>"/>
+<input type="hidden" name="prix" value="<?php echo $row['price']; ?>"/>
+<input type="hidden" name="qte" value="1"/>
+<input type="hidden" name="categorie" value="<?php echo $row['category']; ?>"/>
+
+<input type="submit" class="btn btn-primary btn-xl js-scroll-trigger" value="add to cart"/> 
+
+
+</form>
+</td>
 
 </tr>
 <?php } ?>

@@ -1,4 +1,5 @@
 
+
 <?php
 include('../controller/db.php');
 $upload_dir = '../assets/uploads/';
@@ -13,17 +14,16 @@ if(isset($_GET['delete'])){
           unlink($upload_dir.$image);
           $sql = "delete from categories where id=".$id;
           if(mysqli_query($conn, $sql)){
-              header('location:indexcat.php');
+              header('location:index.php');
           }
       }
   }
 ?>
 
 
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -35,23 +35,12 @@ if(isset($_GET['delete'])){
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
-
-    <center>
-<h2><span style="font-size:25px; color:blue">
-CATEGORIES MANAGEMENT </span>
-</h2></center>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.html">U2S administration</a>
+            <a class="navbar-brand">urband sport shop </a>
+           
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-                    </div>
-                </div>
-            </form>
+          
+            
             <!-- Navbar-->
             <ul class="navbar-nav ml-auto ml-md-0">
                 <li class="nav-item dropdown">
@@ -69,36 +58,36 @@ CATEGORIES MANAGEMENT </span>
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
-                        <div class="nav">
+                    <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.php">
+                            <a class="nav-link" href="../views/index.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
                             
                        
                            
-                            <a class="nav-link" href="index.php">
+                            <a class="nav-link" href="../views/index.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                PRODUCTS
                             </a>
-                            <a class="nav-link" href="indexcat.php">
+                            <a class="nav-link" href="../views/indexcat.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                CATEGORIES
                             </a>
-                            <a class="nav-link" href="client.php">
+                            <a class="nav-link" href="../views/index.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                              CUSTOMERS
                             </a>
-                            <a class="nav-link" href="indexreview.php">
+                            <a class="nav-link" href="../views/indexreview.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             PRODUCTS REVIEW
                             </a>
-                            <a class="nav-link" href="index.php">
+                            <a class="nav-link" href="../views/index.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             SHOPPING CART
                             </a>
-                            <a class="nav-link" href="indexRE.php">
+                            <a class="nav-link" href="../views/indexRE.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             RETURNS&EXCHANGES
                             </a>
@@ -110,21 +99,32 @@ CATEGORIES MANAGEMENT </span>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4"> CATEGORIES MANAGEMENT </h1>
-                      
-                        
-                        <div class="card mb-4">
-                             
-                             <div class="container">
-<br/><br/>
-<div class="row header col-sm-12" style="text-align:center;color:blue">
+                        <h1 class="mt-4">categories</h1>
+                     
+
+                        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+                            <div class="container">
+                              <a class="navbar-brand" href="index.php">URBAND SHOP CATEGORIES</a>
+                              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                                <span class="navbar-toggler-icon"></span>
+                              </button>
+                              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                  <ul class="navbar-nav mr-auto"></ul>
                                   <ul class="navbar-nav ml-auto">
                                     <li class="nav-item"><a class="btn btn-primary" href="../model/create.php"> create<i class="fa fa-user-plus"></i></a></li>
                                   </ul>
+                              </div>
                             </div>
-<div class="col-md-12"><form method="post" action="../Model/search.php"><input required type="text" name="search"/><input type="submit"  value="Search" /></form></div>
-<div style="height:50px;"></div>
-<table id="example" class="table table-striped table-bordered" style="width:100%">
+                          </nav>
+                    
+                          <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="card-header">CATEGORIES LIST </div>
+                                          <div class="card-body">
+                                          <div class="col-md-12"><form method="post" action="../Model/search.php"><input required type="text" name="search"/><input type="submit"  value="Search" /></form></div>
+                                          <table id="example" class="table table-striped table-bordered" style="width:100%">
                                             <thead>
                                                 <tr>
                                                     <th>ID</th>
@@ -136,9 +136,11 @@ CATEGORIES MANAGEMENT </span>
                                             </thead>
                                             <tbody>
                                               <?php
-                                                $sql = "select * from categories";
-                                                $result = mysqli_query($conn, $sql);
-                                                        if(mysqli_num_rows($result)){
+                                            
+                                              $search = $_POST['search'];
+                                                $sql = "select * from `categories` WHERE `name`='".$search."'";
+
+                                                $result = mysqli_query($conn, $sql);                                                        if($result && mysqli_num_rows($result)>0){
                                                             while($row = mysqli_fetch_assoc($result)){
                                               ?>
                                               <tr>
@@ -146,11 +148,10 @@ CATEGORIES MANAGEMENT </span>
                                                 <td><img src="<?php echo $upload_dir.$row['image'] ?>" height="40"></td>
                                                 <td><?php echo $row['name'] ?></td>
                                                 
-                                        
                                                 <td class="text-center">
-                                                  <a href="../model/showcat.php?id=<?php echo $row['id'] ?>" class="btn btn-success"><i class="fa fa-eye"></i></a>
-                                                  <a href="../model/editcat.php?id=<?php echo $row['id'] ?>" class="btn btn-info"><i class="fa fa-user-edit"></i></a>
-                                                  <a href="indexcat.php?delete=<?php echo $row['id'] ?>" class="btn btn-danger" onclick="return confirm('Are you sure to delete this record?')"><i class="fa fa-trash-alt"></i></a>
+                                                  <a href="showcat.php?id=<?php echo $row['id'] ?>" class="btn btn-success"><i class="fa fa-eye"></i></a>
+                                                  <a href="/editcat.php?id=<?php echo $row['id'] ?>" class="btn btn-info"><i class="fa fa-user-edit"></i></a>
+                                                  <a href="../views/indexcat.php?delete=<?php echo $row['id'] ?>" class="btn btn-danger" onclick="return confirm('Are you sure to delete this record?')"><i class="fa fa-trash-alt"></i></a>
                                                 </td>
                                               </tr>
                                               <?php
@@ -159,20 +160,44 @@ CATEGORIES MANAGEMENT </span>
                                               ?>
                                             </tbody>
                                           </table>
-</div>
-<!-- include insert modal -->
-<?php include('../model/show_add_modal.php'); ?>
-<!-- End -->
-</div>
-
-                            
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                          </div>
+                    
+
+
+                        
+                        
                 </main>
                 
             </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+        <script src="../assets/js/bootstrap.min.js" charset="utf-8"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" charset="utf-8"></script>
+      
+
+
+
+
+
+
+
+
+
+
+
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="../assets/js/scriptss.js"></script>

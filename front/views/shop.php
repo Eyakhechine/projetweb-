@@ -56,6 +56,7 @@ if(isset($_GET['delete'])){
 
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#returns&exchanges">returns&exchanges</a></li>
+                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="cart.php">Cart</a></li>
                     </ul>
                 </div>
             </div>
@@ -272,7 +273,7 @@ foreach($result as $row){
                     <div class="col-lg-4 mr-auto text-center">
                         <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
                         <!-- Make sure to change the email address in BOTH the anchor text and the link target below!-->
-                        <a class="d-block" href="signin.php">sign up </a>
+                        <a class="d-block" href="signin.php">sign in </a>
                     </div>
                 </div>
             </div>

@@ -53,6 +53,7 @@ if(isset($_GET['delete'])){
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../model/create-review-info.php">products review</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#shop.php">Contact</a></li>
                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#returns&exchanges">returns&exchanges</a></li>
+                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="cart.php">Cart</a></li>
                     </ul>
                 </div>
             </div>
@@ -84,7 +85,7 @@ if(isset($_GET['delete'])){
                     
 <thead>
 <th><center>Picture</center></th>
-
+<th><center>category</center></th>
 <th><center>brand</center></th>
 <th><center>price</center></th>
 <th><center>description</center></th>
@@ -101,12 +102,23 @@ $img = "http://localhost/php_crud/back/assets/profile_images/".$row['id']. ".jpg
 ?>
 <tr>
 <td> <img src='<?php echo $img ?>' height="260px" width="260px" /></td>
-
+<td><?php echo $row['category']; ?></td>
 <td><?php echo $row['brand']; ?></td>
 <td><?php echo $row['price']; ?></td>
 <td><?php echo $row['description']; ?></td>
 <td><?php echo $row['name']; ?></td>
-<td><a class="btn btn-primary btn-xl js-scroll-trigger" href="ordern.php"> add to cart </a></td>
+<td>
+<form method="post" action="addtocart.php">
+<input type="hidden" name="pid" value="<?php echo $row['id']; ?>"/>
+<input type="hidden" name="prix" value="<?php echo $row['price']; ?>"/>
+<input type="hidden" name="qte" value="1"/>
+<input type="hidden" name="categorie" value="<?php echo $row['category']; ?>"/>
+
+<input type="submit" class="btn btn-primary btn-xl js-scroll-trigger" value="add to cart"/> 
+
+
+</form>
+</td>
 
 </tr>
 <?php } ?>

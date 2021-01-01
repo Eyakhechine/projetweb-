@@ -40,8 +40,9 @@ if(isset($_GET['delete'])){
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="../assets/css/styles.css" rel="stylesheet" />
     </head>
-         <!-- Navigation-->
-         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    
+           <!-- Navigation-->
+           <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
                 <a class="navbar-brand js-scroll-trigger" href="#page-top">WELCOME </a> 
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -52,14 +53,12 @@ if(isset($_GET['delete'])){
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../model/create-review-info.php">products review</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#shop.php">Contact</a></li>
                          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#returns&exchanges">returns&exchanges</a></li>
-                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="cart.php">Cart</a></li>
+                   <li class="nav-item"><a class="nav-link js-scroll-trigger" href="cart.php">Cart</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-
-  <!-- search-->
         <!-- Masthead-->
         <header class="masthead">
             <div class="container h-100">
@@ -70,58 +69,40 @@ if(isset($_GET['delete'])){
                     </div>
                     <div class="col-lg-8 align-self-baseline">
                         <p class="text-white-75 font-weight-light mb-5"> <strong>DON'T DELAY ! SALE IS TODAY</strong></p>
-                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">SCROLL DOWN TO CHECK PRODUCTS</a>
+                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">scroll down to shopping cart</a>
                     </div>
                 </div>
             </div>
         </header>
         <body class="img">
-
-        <table class="table table-striped table-bordered table-responsive table-hover"  id="about" id="empTable">
-
-   
-                    
+<div class="container">
+        <table class="table table-striped table-bordered mt-3 table-hover"  id="about" id="empTable">
+        
 <thead>
-<th><center>Picture</center></th>
-<th><center>category</center></th>
-<th><center>brand</center></th>
+<th><center>Produit</center></th>
+<th><center>Quantity</center></th>
 <th><center>price</center></th>
-<th><center>description</center></th>
-<th><center>name</center></th>
-<th><center>shopping cart</center></th>
+
 
 </thead>
 <tbody>
 <?php
 include('../controller/database.php');
-$result=$mysqli->query("select * FROM productss where category='got customized' ORDER BY price");
+$result=$mysqli->query("select * from cart where id_client=1");
 while($row=$result->fetch_assoc()){
-$img = "http://localhost/php_crud/back/assets/profile_images/".$row['id']. ".jpg";
+$query  =$mysqli->query("select * from productss where id='".$row['id_produit']."'");
+$rows =mysqli_fetch_assoc($query);
+
 ?>
 <tr>
-<td> <img src='<?php echo $img ?>' height="260px" width="260px" /></td>
-<td><?php echo $row['category']; ?></td>
-<td><?php echo $row['brand']; ?></td>
+<td><?php echo $rows['name']; ?></td>
+<td><?php echo $row['quantity']; ?></td>
 <td><?php echo $row['price']; ?></td>
-<td><?php echo $row['description']; ?></td>
-<td><?php echo $row['name']; ?></td>
-<td>
-<form method="post" action="addtocart.php">
-<input type="hidden" name="pid" value="<?php echo $row['id']; ?>"/>
-<input type="hidden" name="prix" value="<?php echo $row['price']; ?>"/>
-<input type="hidden" name="qte" value="1"/>
-<input type="hidden" name="categorie" value="<?php echo $row['category']; ?>"/>
-
-<input type="submit" class="btn btn-primary btn-xl js-scroll-trigger" value="add to cart"/> 
-
-
-</form>
-</td>
-
 </tr>
 <?php } ?>
 </tbody>
 </table>
+</div>
         <!-- Footer-->
         <footer class="bg-light py-5">
             <div class="container"><div class="small text-center text-muted"> URBAND SPORT SHOP 2020</div></div>
@@ -134,5 +115,6 @@ $img = "http://localhost/php_crud/back/assets/profile_images/".$row['id']. ".jpg
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
         <!-- Core theme JS-->
         <script src="../assets/js/scripts.js"></script>
+
     </body>
 </html>

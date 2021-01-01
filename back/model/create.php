@@ -1,68 +1,6 @@
-<?php
-  require_once('../controller/db.php');
-  $upload_dir = '../assets/uploads/';
-
-  if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    $sql = "select * from categories where id=".$id;
-    $result = mysqli_query($conn, $sql);
-    if (mysqli_num_rows($result) > 0) {
-      $row = mysqli_fetch_assoc($result);
-    }else {
-      $errorMsg = 'Could not Find Any Record';
-    }
-  }
-
-  if(isset($_POST['Submit'])){
-    $name = $_POST['name'];
-   
-
-		$imgName = $_FILES['image']['name'];
-		$imgTmp = $_FILES['image']['tmp_name'];
-		$imgSize = $_FILES['image']['size'];
-
-		if($imgName){
-
-			$imgExt = strtolower(pathinfo($imgName, PATHINFO_EXTENSION));
-
-			$allowExt  = array('jpeg', 'jpg', 'png', 'gif');
-
-			$userPic = time().'_'.rand(1000,9999).'.'.$imgExt;
-
-			if(in_array($imgExt, $allowExt)){
-
-				if($imgSize < 5000000){
-					unlink($upload_dir.$row['image']);
-          move_uploaded_file($imgTmp ,$upload_dir.$userPic);
-				}else{
-					$errorMsg = 'Image too large';
-				}
-			}else{
-				$errorMsg = 'Please select a valid image';
-			}
-		}else{
-      
-			$userPic = $row['image'];
-		}
-		if(!isset($errorMsg)){
-			$sql = "update categories
-                  set name = '".$name."',
-                  
-										image = '".$userPic."'
-					where id=".$id;
-			$result = mysqli_query($conn, $sql);
-			if($result){
-				$successMsg = 'New record updated successfully';
-				header('Location:../views/index.php');
-			}else{
-				$errorMsg = 'Error '.mysqli_error($conn);
-			}
-		}
-
-	}
-
+b<?php
+  include('addcat.php')
 ?>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -126,28 +64,24 @@
             <div id="layoutSidenav_content">
                 <main>
       <div class="container-fluid">
-      <h1 class="mt-4">Edit category</h1>
+      <h1 class="mt-4">Add category</h1>
+
         <div class="row justify-content-center">
           <div class="col-md-6">
             <div class="card">
-              <div class="card-header">
-                Edit category
-              </div>
+              <div class="card-header">ADD CATEGORY </div>
               <div class="card-body">
-                <form class="" action="" method="post" enctype="multipart/form-data">
+                <form class="" action="addcat.php" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                       <label for="name">Name</label>
-                      <input type="text" class="form-control" name="name"  placeholder="Enter Name" value="<?php echo $row['name']; ?>">
+                      <input type="text" class="form-control" name="name"  placeholder="Enter Name" value="">
                     </div>
+                   
                     
-                    
-                    
+                   
                     <div class="form-group">
                       <label for="image">Choose Image</label>
-                      <div class="col-md-4">
-                        <img src="<?php echo $upload_dir.$row['image'] ?>" width="100">
-                        <input type="file" class="form-control" name="image" value="">
-                      </div>
+                      <input type="file" class="form-control" name="image" value="">
                     </div>
                     <div class="form-group">
                       <button type="submit" name="Submit" class="btn btn-primary waves">Submit</button>
@@ -160,7 +94,11 @@
       </div>
       </main>
       </div>
-    <script src="../assets/js/bootstrap.min.js" charset="utf-8"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" charset="utf-8"></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/datatables-demo.js"></script>
   </body>
 </html>
