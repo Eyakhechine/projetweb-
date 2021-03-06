@@ -1,0 +1,56 @@
+/*!
+ * Start Bootstrap - Scrolling Nav (https://startbootstrap.com/template/scrolling-nav)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-scrolling-nav/blob/master/LICENSE)
+ */
+header {
+  padding: 156px 0 100px;
+}
+
+section {
+  padding: 150px 0;
+}
+
+.categorieBtn{
+  width: 100%;
+  background: #fafafa !important;
+  display: flex;
+  justify-content: center;
+}
+button.categorieBtn::before {
+  content: '';
+  position: absolute;
+  background: black;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+img.catimg {
+  width: 100%;
+}
+button.categorieBtn span {
+  position: absolute;
+  top: 50%;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  font-family: arial;
+}
+.col-lg-8.mx-auto.text-center {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.col-lg-8.mx-auto.text-center {
+  display: flex;
+  justify-content: space-around !important;
+  max-width: 100% !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  /* position: absolute; */
+  width: 100% !important;
+  flex: 0 0 100%;
+}
+.categorie-wrapper.col-md-4 {
+  max-width: 213px;
+}
